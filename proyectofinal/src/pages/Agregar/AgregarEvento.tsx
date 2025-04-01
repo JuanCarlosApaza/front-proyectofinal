@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import PostData from "../components/InsertarDatos"; // Suponiendo que el componente PostData está en esta ruta
+import PostData from "../../components/InsertarDatos"; // Suponiendo que el componente PostData está en esta ruta
+import ComboBox from "../../components/ComboBox";
+import { Espacio } from "../../models/Espacio";
 
 // Definir la interfaz para los datos que serán enviados
 interface Evento {
@@ -32,6 +34,10 @@ const Formulario: React.FC = () => {
     e.preventDefault();
     setIsSubmitted(true); 
   };
+
+  function handleSelect(item: Espacio): void {
+    throw new Error("Function not implemented.");
+  }
 
   return (
     <div>
@@ -68,6 +74,7 @@ const Formulario: React.FC = () => {
           placeholder="ID Espacio"
           className="border p-2 mb-2 w-full"
         />
+        
         <button type="submit" className="bg-blue-500 text-white p-2 rounded">
           Enviar
         </button>

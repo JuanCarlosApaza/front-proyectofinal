@@ -1,28 +1,23 @@
-import { BoletoProps } from "../interfaces/Boleto";
-const Table: React.FC<BoletoProps> = ({nombreEvento,correo,estadoBoleto,precio}) => {
-    return (
-        <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border border-gray-300">
-            <thead>
-            <tr>
-                <th className="py-2 px-4 border-b">Nombre Evento</th>
-                <th className="py-2 px-4 border-b">Correo</th>
-                <th className="py-2 px-4 border-b">Precio</th>
-                <th className="py-2 px-4 border-b">Estado Boleto</th>
-            </tr>
-            </thead>
-
-            
-            <tbody>
-                <tr>
-                    <td>{nombreEvento}</td>
-                    <td>{correo}</td>
-                    <td>{precio}</td>
-                    <td>{estadoBoleto}</td>
-                </tr>
-            </tbody>
-        </table>
-        </div>
-    );
+interface ListaProps {
+  items: string[];
+  children:React.ReactNode,
+}
+const Tablas: React.FC<ListaProps> = ({ items,children}) => {
+  return (
+    <div>
+      <table className="table-auto border-collapse w-full ">
+        <thead className="bg-black  text-white ">
+          <tr>
+            {items.map((item, index) => (
+              <th key={index} className="p-4 border-2 border-white">{item}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+                {children}
+        </tbody>
+      </table>
+    </div>
+  );
 };
-export default Table;
+export default Tablas;

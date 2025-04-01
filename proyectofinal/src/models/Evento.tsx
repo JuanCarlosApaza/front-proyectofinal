@@ -1,9 +1,9 @@
 import {Espacio} from "../models/Espacio";
 export interface Evento {
-    idevento:number;
+    idevento?:number;
     nombre:string;
-    estado:string;
+    estado?:string;
     precio:number;
     idespacio:number;
-    espacio:Espacio;
+    espacio?:Espacio;
 }

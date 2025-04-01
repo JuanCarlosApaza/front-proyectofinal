@@ -1,5 +1,6 @@
 export interface Espacio {
-    idespacio: number;
+    [x: string]: any;
+    idespacio?: number;
     nombre: string;
     ubicacion: string;
 }
