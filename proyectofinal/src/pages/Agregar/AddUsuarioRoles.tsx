@@ -4,11 +4,11 @@ import FetchData2 from "../../components/DevolverDatos";
 import MostrarDatos from "../../components/MostrarDatos";
 import MiComponente from "../../components/FormularioComun";
 import Swal from "sweetalert2";
+import { UsuarioRol } from "../../models/UsuarioRol";
 import { Usuario } from "../../models/Usuario";
 import { Roles } from "../../models/Roles";
-import { RolModulos } from "../../models/RolModulos";
 import Navbar from "../../Navbar";
-const CrearModuloRol = () => {
+const CrearUsuarioRol = () => {
   const [datos, setDatos] = useState<Usuario[] | null>(null); 
   const [idSeleccionado, setIdSeleccionado] = useState<number | null>(null); 
   const [idSeleccionado2, setIdSeleccionado2] = useState<number | null>(null); 
@@ -20,9 +20,9 @@ const CrearModuloRol = () => {
     setIdSeleccionado2(id);
   };
 
-  const [usuario, setUsuario] = useState<RolModulos>({
+  const [usuario, setUsuario] = useState<UsuarioRol>({
     
-    idmodulo: 0,
+    idusuario: 0,
     idrol: 0,
 
   });
@@ -45,7 +45,7 @@ const CrearModuloRol = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://localhost:7045/api/RolModulos", {
+      const response = await fetch("https://localhost:7045/api/UsuarioRol", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -69,7 +69,7 @@ const CrearModuloRol = () => {
             });
       setUsuario({
         idrol:0,
-        idmodulo:0,
+        idusuario:0,
       });
     } catch (error) {
       console.log(usuario);
@@ -85,9 +85,9 @@ const CrearModuloRol = () => {
   return (
     
 <div>
-<Navbar>
-   <FetchData2<Usuario[]>
-        url="https://localhost:7045/api/Modulos"
+    <Navbar>
+      <FetchData2<Usuario[]>
+        url="https://localhost:7045/api/Usuario"
         onDataLoaded={(data: Usuario[]) => {
           setDatos(data); 
         }}
@@ -103,14 +103,14 @@ const CrearModuloRol = () => {
         <form onSubmit={handleSubmit}>
           
           <label>Persona</label>
-          {datos && <MostrarDatos datos={datos} name="nombre" id="id" onSeleccionado={manejarSeleccionado} />}
+          {datos && <MostrarDatos datos={datos} name="correo" id="idusuario" onSeleccionado={manejarSeleccionado} />}
       {datos2 && <MostrarDatos datos={datos2} name="nombre_rol" id="id" onSeleccionado={manejarSeleccionado2} />}
 
           <input
             type="number"
-            name="idmodulo"
-            placeholder="idmodulo"
-            value={(usuario.idmodulo = idSeleccionado || 0)}
+            name="idusuario"
+            placeholder="idusuario"
+            value={(usuario.idusuario = idSeleccionado || 0)}
             onChange={handleChange}
             hidden
           />
@@ -128,11 +128,11 @@ const CrearModuloRol = () => {
             </button>
           </div>
         </form>
-      </MiComponente>     
-        </Navbar>
+      </MiComponente>  
+    </Navbar>
 
     </div>
   );
 };
 
-export default CrearModuloRol;
+export default CrearUsuarioRol;

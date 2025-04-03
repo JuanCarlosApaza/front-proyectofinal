@@ -1,12 +1,13 @@
 import { Evento } from "./Evento";
 import { Usuario } from "./Usuario";
 export interface Anuncio {
-    idanucion: number;
+    idanuncio?:number;
     titulo: string;
     imagen: string;
     descripcion: string;
     estado: string;
-    evento: Evento;
-    usuario: Usuario;
-
+    idevento:number;
+    evento?:Evento;
+    idusuario: number;
+    usuario?:Usuario;
 }

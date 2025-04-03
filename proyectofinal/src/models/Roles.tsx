@@ -1,6 +1,6 @@
 export interface Roles {
-    id:number;
+    id?:number;
     nombre_rol:string;
     estado:string;
-    fecha_creacion:Date;
+    fecha_creacion:string;
 }

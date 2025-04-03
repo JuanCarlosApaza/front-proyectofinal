@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Evento } from "../../models/Evento";
+
 import { Espacio } from "../../models/Espacio";
-import FetchData2 from "../../components/DevolverDatos";
-import MostrarDatos from "../../components/MostrarDatos";
+
 import MiComponente from "../../components/FormularioComun";
 import InputField from "../../components/InputForm";
 import Swal from "sweetalert2";
+import Navbar from "../../Navbar";
 const CrearEspacio = () => {
   const [espacio, setEvento] = useState<Espacio>({
     nombre: "",
@@ -67,7 +67,8 @@ const CrearEspacio = () => {
   return (
     
 <div>
-    <MiComponente>
+<Navbar>
+        <MiComponente>
         
         <form onSubmit={handleSubmit}>
           <InputField
@@ -93,6 +94,8 @@ const CrearEspacio = () => {
           </div>
         </form>
       </MiComponente>
+        </Navbar>
+    
 </div>
       
   );

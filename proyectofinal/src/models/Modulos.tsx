@@ -1,5 +1,5 @@
 export interface Modulos{
-    id:number;
+    id?:number;
     nombre:string;
     ruta:string;
 }

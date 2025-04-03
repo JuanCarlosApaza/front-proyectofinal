@@ -4,4 +4,6 @@ export interface CartaProps {
     precio: number;
     nombreEspacio: string;
     ubicacion: string;
+    idpago?:number;
+    idusuario?:number;
   };

@@ -1,11 +1,13 @@
 import FetchData from "../../components/CargaDatos";
 import Tablas from "../../components/Tablas";
 import { Espacio } from "../../models/Espacio";
+import Navbar from "../../Navbar";
 
 const ListarEspacios = () => {
   return (
     <div>
-      <FetchData<Espacio[]>
+      <Navbar>
+         <FetchData<Espacio[]>
         url="https://localhost:7045/api/Espacio"
         render={(espacios) => (
           <Tablas items={["Nombre", "Ubicacion", "Modificar", "Eliminar"]}>
@@ -26,7 +28,9 @@ const ListarEspacios = () => {
             })}
           </Tablas>
         )}
-      />
+      /> 
+        </Navbar>
+    
     </div>
   );
 };

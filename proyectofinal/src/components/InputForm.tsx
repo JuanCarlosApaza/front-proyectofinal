@@ -20,7 +20,7 @@ const InputField: React.FC<InputFieldProps> = ({
 }) => {
   return (
     <div className="mb-4">
-        <label >{placeholder}</label>
+        <label  >{placeholder}</label>
         <input
 
       type={type}
@@ -29,7 +29,7 @@ const InputField: React.FC<InputFieldProps> = ({
       value={value}
       onChange={onChange}
       required={required}
-      className="border  rounded-lg p-4 w-full"
+      className="border  rounded-lg p-4 w-full border-white"
     />
     </div>
     
